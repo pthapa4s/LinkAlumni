@@ -1,0 +1,71 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  padding:10px 5px 0px 5px;
+ 
+}
+.navbar-nav {
+   /* background-color: #E0061F;*/
+   background-color:#C8102E;
+    color: #fff;
+    margin-top: 0px;
+    height:70px;
+
+}
+.nav-item {
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Arial Black, Arial, sans-serif;
+    font-size:30px;
+    padding: 15px 0px 0px 10px;
+}
+.display-4 {
+    font-family: "Lyon Display Web", Times, "Times New Roman", serif;
+    color: #000;
+}
+.add, .text-dark{
+    color:#fff !important;
+}
+button{
+   background-color:#C8102E;
+   border-color:#C8102E;
+   color:#fff !important;
+   border-radius:5px;
+}
+p {
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Arial Black, Arial, sans-serif;
+    color: #000;
+    font-size:20px;
+}
+/*.text-dark:hover{
+    background-color:#fff;
+    border-color:#C8102E;
+    color:#C8102E;
+}*/
+h1 {
+    color: #5B6670;
+    font-size: 30px;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Arial Black, Arial, sans-serif;
+    margin-top: 10px;
+}
+.btn-primary{
+    color:#fff;
+    background-color:#C8102E;
+    margin-top:10px;
+    border-color:#C8102E;
+}
+.form-group>input{
+    border-color:#C8102E;
+}
