@@ -69,3 +69,6 @@ h1 {
 .form-group>input{
     border-color:#C8102E;
 }
+.table, th, td{
+    border: 1px solid black;
+}

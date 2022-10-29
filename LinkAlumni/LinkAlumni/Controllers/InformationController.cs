@@ -3,6 +3,7 @@ using LinkAlumni.Models.Domain;
 using LinkAlumni.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
 
 namespace LinkAlumni.Controllers
 {
@@ -51,8 +52,55 @@ namespace LinkAlumni.Controllers
             };
             await mvcDemoDbContext.AlumniInformation.AddAsync(alumni);
             await mvcDemoDbContext.SaveChangesAsync();
-            return RedirectToAction("Add");
+            return RedirectToAction("Submit", "Information");
 
         }
+        [HttpGet]
+        public IActionResult Submit()
+        {
+            return View();
+        }
+        //[HttpGet]
+        //public FileResult Export()
+        //{
+        //    string[] columnNames = new string[]
+        //    {
+        //        "First Name","Last Name", "City", "State", "Phone Number", "Email", "Graduation Year",
+        //        "Degree Received", "Major", "Post Graduate Degrees", "Certificates", "Internships",
+        //        "Current Job Ttitle", "Company Name", "Company Address", "Notes"
+
+        //    };
+        //    var alumnis = new AlumniList().EmpList;
+        //    string csv = string.Empty;
+
+        //    foreach (string columnName in columnNames){
+        //        csv += columnName + ',';
+        //    }
+        //    csv += "\r\n";
+
+        //    foreach (var alumni in alumnis)
+        //    {
+        //        csv += alumni.FirstName.Replace(",", ";") + ',';
+        //        csv += alumni.LastName.Replace(",", ";") + ',';
+        //        csv += alumni.City.Replace(",", ";") + ',';
+        //        csv += alumni.State.Replace(",", ";") + ',';
+        //        csv += alumni.PhoneNumber.Replace(",", ";") + ',';
+        //        csv += alumni.Email.Replace(",", ";") + ',';
+        //        csv += alumni.GraduationYear.Replace(",", ";") + ',';
+        //        csv += alumni.DegreeReceived.Replace(",", ";") + ',';
+        //        csv += alumni.Major.Replace(",", ";") + ',';
+        //        csv += alumni.PostGrduateDegrees.Replace(",", ";") + ',';
+        //        csv += alumni.Certificates.Replace(",", ";") + ',';
+        //        csv += alumni.Internships.Replace(",", ";") + ',';
+        //        csv += alumni.CurrentJobTitle.Replace(",", ";") + ',';
+        //        csv += alumni.CompanyName.Replace(",", ";") + ',';
+        //        csv += alumni.CopanyAddress.Replace(",", ";") + ',';
+        //        csv += alumni.Notes.Replace(",", ";") + ',';
+
+        //        csv += "\r\n";
+        //    }
+        //    byte[] bytes = Encoding.ASCII.GetBytes(csv);
+        //    return File(bytes, "text/csv", "Alumni.csv");
+        //}
     }
 }

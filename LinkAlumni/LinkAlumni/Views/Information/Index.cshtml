@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<LinkAlumni.Models.Domain.AlumniInformation>
+
+<h1>Alumnis</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Graduation Year</th>
+            <th>Degree Recieved</th>
+            <th>Major</th>
+            <th>Post Graduate Degrees</th>
+            <th>Certificates</th>
+            <th>Internships</th>
+            <th>Current Job Title</th>
+            <th>Company Name</th>
+            <th>Company Address</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var alumni in Model){
+            <tr>
+                <td>@alumni.FirstName</td>
+                <td>@alumni.LastName</td>
+                <td>@alumni.City</td>
+                <td>@alumni.State</td>
+                <td>@alumni.PhoneNumber</td>
+                <td>@alumni.Email</td>
+                <td>@alumni.GraduationYear</td>
+                <td>@alumni.DegreeReceived</td>
+                <td>@alumni.Major</td>
+                <td>@alumni.PostGraduateDegree</td>
+                <td>@alumni.Certificates</td>
+                <td>@alumni.Internships</td>
+                <td>@alumni.CurrentJobTitle</td>
+                <td>@alumni.CompanyName</td>
+                <td>@alumni.CompanyAddress</td>
+                <td>@alumni.Notes</td>
+            </tr>
+        }
+    </tbody>
+</table>
