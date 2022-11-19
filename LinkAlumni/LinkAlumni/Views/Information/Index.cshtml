@@ -4,6 +4,12 @@
 @{
 }
 @model List<LinkAlumni.Models.Domain.AlumniInformation>
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+
+ 
+@{
+    Layout = null;
+}
 
 <h1>Alumnis</h1>
 <table class="table">
@@ -50,3 +56,12 @@
         }
     </tbody>
 </table>
+<div class="excel-buttons">
+    <form asp-action="Csv" asp-controller="Information" method="post" class="excel-buttons">
+        <input type="submit" value="Export Basic Information" />
+    </form>
+
+    <form asp-action="CsvForEducation" asp-controller="Information" method="post" class="excel-buttons">
+        <input type="submit" value="Export Education Information" />
+    </form>
+</div>

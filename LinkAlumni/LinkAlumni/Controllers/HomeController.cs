@@ -1,4 +1,5 @@
-﻿using LinkAlumni.Models;
+﻿using Alumni.Data;
+using LinkAlumni.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -12,7 +13,7 @@ namespace LinkAlumni.Controllers
         {
             _logger = logger;
         }
-
+     
         public IActionResult Index()
         {
             return View();
@@ -28,5 +29,6 @@ namespace LinkAlumni.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+       
     }
 }

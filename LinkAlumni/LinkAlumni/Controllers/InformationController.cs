@@ -4,6 +4,7 @@ using LinkAlumni.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace LinkAlumni.Controllers
 {
@@ -60,47 +61,59 @@ namespace LinkAlumni.Controllers
         {
             return View();
         }
-        //[HttpGet]
-        //public FileResult Export()
-        //{
-        //    string[] columnNames = new string[]
-        //    {
-        //        "First Name","Last Name", "City", "State", "Phone Number", "Email", "Graduation Year",
-        //        "Degree Received", "Major", "Post Graduate Degrees", "Certificates", "Internships",
-        //        "Current Job Ttitle", "Company Name", "Company Address", "Notes"
 
-        //    };
-        //    var alumnis = new AlumniList().EmpList;
-        //    string csv = string.Empty;
+        [HttpPost]
+        public IActionResult Csv()
+        {
+            var builder = new StringBuilder();
+            List<AddAlumniViewModel> alumnis = (from alumni in this.mvcDemoDbContext.AlumniInformation.ToList()
+                                    select new AddAlumniViewModel
+                                    {
+                                        FirstName = alumni.FirstName,
+                                        LastName = alumni.LastName,
+                                        City = alumni.City,
+                                        PhoneNumber = alumni.PhoneNumber,
+                                        Email =alumni.Email
+                                    }).ToList<AddAlumniViewModel>();
 
-        //    foreach (string columnName in columnNames){
-        //        csv += columnName + ',';
-        //    }
-        //    csv += "\r\n";
+            builder.AppendLine("First Name, Last Name, City, Phone Number, Email");
 
-        //    foreach (var alumni in alumnis)
-        //    {
-        //        csv += alumni.FirstName.Replace(",", ";") + ',';
-        //        csv += alumni.LastName.Replace(",", ";") + ',';
-        //        csv += alumni.City.Replace(",", ";") + ',';
-        //        csv += alumni.State.Replace(",", ";") + ',';
-        //        csv += alumni.PhoneNumber.Replace(",", ";") + ',';
-        //        csv += alumni.Email.Replace(",", ";") + ',';
-        //        csv += alumni.GraduationYear.Replace(",", ";") + ',';
-        //        csv += alumni.DegreeReceived.Replace(",", ";") + ',';
-        //        csv += alumni.Major.Replace(",", ";") + ',';
-        //        csv += alumni.PostGrduateDegrees.Replace(",", ";") + ',';
-        //        csv += alumni.Certificates.Replace(",", ";") + ',';
-        //        csv += alumni.Internships.Replace(",", ";") + ',';
-        //        csv += alumni.CurrentJobTitle.Replace(",", ";") + ',';
-        //        csv += alumni.CompanyName.Replace(",", ";") + ',';
-        //        csv += alumni.CopanyAddress.Replace(",", ";") + ',';
-        //        csv += alumni.Notes.Replace(",", ";") + ',';
+            foreach (var alumni in alumnis)
+            {
+                builder.AppendLine($"{alumni.FirstName}, {alumni.LastName}, {alumni.PhoneNumber}, {alumni.Email}");
+            }
 
-        //        csv += "\r\n";
-        //    }
-        //    byte[] bytes = Encoding.ASCII.GetBytes(csv);
-        //    return File(bytes, "text/csv", "Alumni.csv");
-        //}
+            return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "Alumni.csv");
+        } 
+        
+        [HttpPost]
+        public IActionResult CsvForEducation()
+        {
+            var builder = new StringBuilder();
+            List<AddAlumniViewModel> alumnis = (from alumni in this.mvcDemoDbContext.AlumniInformation.ToList()
+                                    select new AddAlumniViewModel
+                                    {
+                                        FirstName = alumni.FirstName,
+                                        LastName = alumni.LastName,
+                                        DegreeReceived = alumni.DegreeReceived,
+                                        Major = alumni.Major,
+                                        GraduationYear = alumni.GraduationYear,
+                                        PostGraduateDegree = alumni.PostGraduateDegree,
+                                        Certificates = alumni.Certificates
+                                    }).ToList<AddAlumniViewModel>();
+
+            builder.AppendLine("First Name, Last Name, Degree, Major,Graduation Year, Post Graduate Degrees, Certificates");
+
+            foreach (var alumni in alumnis)
+            {
+                builder.AppendLine($"{alumni.FirstName}, {alumni.LastName}, {alumni.DegreeReceived},{alumni.Major}, {alumni.GraduationYear}, {alumni.PostGraduateDegree}, {alumni.Certificates}");
+            }
+
+            return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "AlumniEducation.csv");
+        }
+
+        
+
+
     }
 }
