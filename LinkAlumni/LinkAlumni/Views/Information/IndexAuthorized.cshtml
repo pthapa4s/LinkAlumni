@@ -1,0 +1,134 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<LinkAlumni.Models.Domain.AlumniInformation>
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+
+ 
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <style>
+        .heading, th, a{
+            color:#c8102e;
+            font-family: Calibri, Candara, Segoe, "Segoe UI", Arial Black, Arial, sans-serif;
+        }
+        .heading{
+            display:flex;
+            justify-content:center;
+            font-size:35px;
+        }
+        .container{
+            padding:10px;
+        }
+
+        .table, th, td {
+            border: 0.8px solid #C8102E !important;
+            font-size:20px;
+            font-family: Calibri, Candara, Segoe, "Segoe UI", Arial Black, Arial, sans-serif;
+            padding: 5px 5px 5px 5px;
+        }
+        td{
+            font-size:18px;
+            padding: 5px 5px 5px 5px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .excel-buttons{
+            background-color: #c8102e;
+            color:white;
+            font-family: Calibri, Candara, Segoe, "Segoe UI", Arial Black, Arial, sans-serif;
+            font-size:20px;
+            height:40px;
+            width:300px;
+            border-radius:10px;
+            border-style:none;
+            position:relative;
+            left:40%;
+            
+        }
+    </style>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Go Back To Home</a>
+
+    <h1 class="heading">Alumnis of SEMO</h1>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Graduation Year</th>
+                    <th>Degree Recieved</th>
+                    <th>Major</th>
+                    <th>Post Graduate Degrees</th>
+                    <th>Certificates</th>
+                    <th>Internships</th>
+                    <th>Current Job Title</th>
+                    <th>Company Name</th>
+                    <th>Company Address</th>
+                    <th>News</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var alumni in Model)
+                {
+                    <tr style="boder:1px solid red;">
+                        <td>@alumni.FirstName</td>
+                        <td>@alumni.LastName</td>
+                        <td>@alumni.City</td>
+                        <td>@alumni.State</td>
+                        <td>@alumni.PhoneNumber</td>
+                        <td>@alumni.Email</td>
+                        <td>@alumni.GraduationYear</td>
+                        <td>@alumni.DegreeReceived</td>
+                        <td>@alumni.Major</td>
+                        <td>@alumni.PostGraduateDegree</td>
+                        <td>@alumni.Certificates</td>
+                        <td>@alumni.Internships</td>
+                        <td>@alumni.CurrentJobTitle</td>
+                        <td>@alumni.CompanyName</td>
+                        <td>@alumni.CompanyAddress</td>
+                        <td>@alumni.Notes</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div>
+            <br />
+            <form asp-action="Csv" asp-controller="Information" method="post">
+                <input type="submit" value="Export Basic Information" class="excel-buttons" />
+            </form>
+            <br />
+            <form asp-action="CsvForEducation" asp-controller="Information" method="post">
+                <input type="submit" value="Export Education Information" class="excel-buttons" />
+            </form>
+            <br />
+            <form asp-action="CsvForJob" asp-controller="Information" method="post">
+                <input type="submit" value="Export Job Information" class="excel-buttons" />
+            </form>
+            <br />
+            <form asp-action="CsvForNews" asp-controller="Information" method="post">
+                <input type="submit" value="Export News Information" class="excel-buttons" />
+            </form>
+        </div>
+
+    </div>
+
+    
+
+</body>

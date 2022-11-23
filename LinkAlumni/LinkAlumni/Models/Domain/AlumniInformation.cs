@@ -12,12 +12,12 @@
         public int GraduationYear { get; set; }
         public string DegreeReceived { get; set; }
         public string Major { get; set; }
-        public string PostGraduateDegree { get; set; }
-        public string Certificates { get; set; }
-        public string Internships { get; set; }
-        public string CurrentJobTitle { get; set; }
-        public string CompanyName { get; set; }
-        public string CompanyAddress { get; set; }
-        public string Notes { get; set; }
+        public string ?PostGraduateDegree { get; set; }
+        public string ?Certificates { get; set; }
+        public string ?Internships { get; set; }
+        public string ?CurrentJobTitle { get; set; }
+        public string ?CompanyName { get; set; }
+        public string ?CompanyAddress { get; set; }
+        public string ?Notes { get; set; }
     }
 }

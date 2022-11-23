@@ -19,7 +19,6 @@ body {
  
 }
 .navbar-nav {
-   /* background-color: #E0061F;*/
    background-color:#C8102E;
     color: #fff;
     margin-top: 0px;
@@ -34,6 +33,7 @@ body {
 .display-4 {
     font-family: "Lyon Display Web", Times, "Times New Roman", serif;
     color: #000;
+    color:#C8102E;
 }
 .add, .text-dark{
     color:#fff !important;
@@ -49,11 +49,6 @@ p {
     color: #000;
     font-size:20px;
 }
-/*.text-dark:hover{
-    background-color:#fff;
-    border-color:#C8102E;
-    color:#C8102E;
-}*/
 h1 {
     color: #5B6670;
     font-size: 30px;
@@ -71,4 +66,34 @@ h1 {
 }
 .table, th, td{
     border: 1px solid black !important;
+}
+
+.form-control:focus {
+    border-color: #C8102E;
+    box-shadow: 0 0 0 0.10rem #C8102E;
+}
+.form-control{
+    border:1px solid #C8102E;
+}
+.submit-container{
+    position:absolute;
+    top:40%;
+    left:38%;
+    
+}
+h1.submit-container {
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Arial Black, Arial, sans-serif;
+    font-size:30px;
+    color:white;
+}
+.box{
+    text-align:center;
+}
+.add:hover {
+    background-color: #ED2939;
+    border-style:none;
+}
+.btn-primary:hover {
+    background-color: #ED2939;
+    border-style: none;
 }

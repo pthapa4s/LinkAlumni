@@ -1,67 +1,71 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@model List<LinkAlumni.Models.Domain.AlumniInformation>
-@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@model LinkAlumni.Models.PrivateViewModel
 
- 
-@{
-    Layout = null;
-}
-
-<h1>Alumnis</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-            <th>Graduation Year</th>
-            <th>Degree Recieved</th>
-            <th>Major</th>
-            <th>Post Graduate Degrees</th>
-            <th>Certificates</th>
-            <th>Internships</th>
-            <th>Current Job Title</th>
-            <th>Company Name</th>
-            <th>Company Address</th>
-            <th>Notes</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var alumni in Model){
-            <tr>
-                <td>@alumni.FirstName</td>
-                <td>@alumni.LastName</td>
-                <td>@alumni.City</td>
-                <td>@alumni.State</td>
-                <td>@alumni.PhoneNumber</td>
-                <td>@alumni.Email</td>
-                <td>@alumni.GraduationYear</td>
-                <td>@alumni.DegreeReceived</td>
-                <td>@alumni.Major</td>
-                <td>@alumni.PostGraduateDegree</td>
-                <td>@alumni.Certificates</td>
-                <td>@alumni.Internships</td>
-                <td>@alumni.CurrentJobTitle</td>
-                <td>@alumni.CompanyName</td>
-                <td>@alumni.CompanyAddress</td>
-                <td>@alumni.Notes</td>
-            </tr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+        <style>
+            .container{
+                display:flex;
+                justify-content:center;
+                font-family: Calibri, Candara, Segoe, "Segoe UI", Arial Black, Arial, sans-serif;
         }
-    </tbody>
-</table>
-<div class="excel-buttons">
-    <form asp-action="Csv" asp-controller="Information" method="post" class="excel-buttons">
-        <input type="submit" value="Export Basic Information" />
-    </form>
+            .login {
+                height: 200px;
+                width: 300px;
+                background-color: #C8102E;
+                border-radius: 10px;
+                margin-top: 100px;
+            }
+            .row{
+                margin-top:10px;
+                margin-left:10px;
+                color:white;
+            }
+            input{
+                width:250px !important;
+                border-radius: 5px;
+                border-style:none !important;
+            }
+            #submit{
+                width:100px !important;
+                position:relative;
+                left:70px;
+            }
+            #submit:hover{
+                background-color: #ED2939;
+                border-style: none;
+                color:white;
+            }
+        </style>
 
-    <form asp-action="CsvForEducation" asp-controller="Information" method="post" class="excel-buttons">
-        <input type="submit" value="Export Education Information" />
-    </form>
-</div>
+@using (Html.BeginForm()){
+        <div class="container">
+                <div class="row">
+                    <div class="col-sm login">
+                        <div class="row username">
+                            @Html.LabelFor(m=>m.UserName, new{ placeholder = "username"})
+                            @Html.EditorFor(m=>m.UserName)
+                        </div>
+                        <div class="row password">
+                            @Html.LabelFor(m=>m.Password)
+                            <br>
+                            @Html.PasswordFor(m=>m.Password , new{ placeholder = "password"})
+                            <br>
+                        </div>
+                        <div class="row">
+                           <input type = "submit" value = "Login" id="submit"/>
+                        </div>
+
+                    </div>
+                </div>
+         </div>
+}
+    </body>
+    </html>
+
+
+

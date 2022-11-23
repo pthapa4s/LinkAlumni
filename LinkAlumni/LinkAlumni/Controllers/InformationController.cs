@@ -17,12 +17,29 @@ namespace LinkAlumni.Controllers
             this.mvcDemoDbContext = mvcDemoDbContext;
         }
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var alumni = await mvcDemoDbContext.AlumniInformation.ToListAsync();
-            return View(alumni);
-
+            return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(PrivateViewModel model)
+        {
+            var currentUsername = "semoadmin";
+            var currentPassword = "semopassword";
+
+            if(currentUsername == model.UserName && currentPassword == model.Password)
+            {
+                var alumni = await mvcDemoDbContext.AlumniInformation.ToListAsync();
+                return View("IndexAuthorized", alumni);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+
         [HttpGet]
         public IActionResult Add()
         {
@@ -80,7 +97,7 @@ namespace LinkAlumni.Controllers
 
             foreach (var alumni in alumnis)
             {
-                builder.AppendLine($"{alumni.FirstName}, {alumni.LastName}, {alumni.PhoneNumber}, {alumni.Email}");
+                builder.AppendLine($"{alumni.FirstName}, {alumni.LastName},{alumni.City}, {alumni.PhoneNumber}, {alumni.Email}");
             }
 
             return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "Alumni.csv");
@@ -110,6 +127,51 @@ namespace LinkAlumni.Controllers
             }
 
             return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "AlumniEducation.csv");
+        }
+        [HttpPost]
+        public IActionResult CsvForJob()
+        {
+            var builder = new StringBuilder();
+            List<AddAlumniViewModel> alumnis = (from alumni in this.mvcDemoDbContext.AlumniInformation.ToList()
+                                    select new AddAlumniViewModel
+                                    {
+                                        FirstName = alumni.FirstName,
+                                        LastName = alumni.LastName,
+                                        CurrentJobTitle = alumni.CurrentJobTitle,
+                                        CompanyName = alumni.CompanyName,
+                                        CompanyAddress = alumni.CompanyAddress
+                                    }).ToList<AddAlumniViewModel>();
+
+            builder.AppendLine("First Name, Last Name, CurrentJob, Company Name, Company Address");
+
+            foreach (var alumni in alumnis)
+            {
+                builder.AppendLine($"{alumni.FirstName}, {alumni.LastName}, {alumni.CurrentJobTitle},{alumni.CompanyName}, {alumni.CompanyAddress}");
+            }
+
+            return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "AlumniJob.csv");
+        }   
+        [HttpPost]
+        public IActionResult CsvForNews()
+        {
+            var builder = new StringBuilder();
+            List<AddAlumniViewModel> alumnis = (from alumni in this.mvcDemoDbContext.AlumniInformation.ToList()
+                                    select new AddAlumniViewModel
+                                    {
+                                        FirstName = alumni.FirstName,
+                                        LastName = alumni.LastName,
+                                        Notes = alumni.Notes
+                                        
+                                    }).ToList<AddAlumniViewModel>();
+
+            builder.AppendLine("First Name, Last Name, News");
+
+            foreach (var alumni in alumnis)
+            {
+                builder.AppendLine($"{alumni.FirstName}, {alumni.LastName}, {alumni.Notes}");
+            }
+
+            return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "AlumniNews.csv");
         }
 
         
