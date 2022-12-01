@@ -14,22 +14,22 @@ namespace LinkAlumni.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    State = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(8000)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(8000)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(8000)", nullable: false),
+                    State = table.Column<string>(type: "nvarchar(8000)", nullable: false),
                     PhoneNumber = table.Column<long>(type: "bigint", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(8000)", nullable: false),
                     GraduationYear = table.Column<int>(type: "int", nullable: false),
-                    DegreeReceived = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Major = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PostGraduateDegree = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Certificates = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Internships = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CurrentJobTitle = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CompanyAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Notes = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    DegreeReceived = table.Column<string>(type: "nvarchar(8000)", nullable: false),
+                    Major = table.Column<string>(type: "nvarchar(8000)", nullable: false),
+                    PostGraduateDegree = table.Column<string>(type: "nvarchar(8000)", nullable: false),
+                    Certificates = table.Column<string>(type: "nvarchar(8000)", nullable: false),
+                    Internships = table.Column<string>(type: "nvarchar(8000)", nullable: false),
+                    CurrentJobTitle = table.Column<string>(type: "nvarchar(8000)", nullable: false),
+                    CompanyName = table.Column<string>(type: "nvarchar(8000)", nullable: false),
+                    CompanyAddress = table.Column<string>(type: "nvarchar(8000)", nullable: false),
+                    Notes = table.Column<string>(type: "nvarchar(8000)", nullable: false)
                 },
                 constraints: table =>
                 {

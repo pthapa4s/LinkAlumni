@@ -1,0 +1,102 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  padding:10px 5px 0px 5px;
+ 
+}
+.navbar-nav {
+   background-color:#C8102E;
+    color: #fff;
+    margin-top: 0px;
+    height:70px;
+
+}
+.nav-item {
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Arial Black, Arial, sans-serif;
+    font-size:30px;
+    padding: 15px 0px 0px 10px;
+}
+.display-4 {
+    font-family: "Lyon Display Web", Times, "Times New Roman", serif;
+    color: #000;
+    color:#C8102E;
+}
+.add, .text-dark{
+    color:#fff !important;
+}
+button{
+   background-color:#C8102E;
+   border-color:#C8102E;
+   color:#fff !important;
+   border-radius:5px;
+}
+p {
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Arial Black, Arial, sans-serif;
+    color: #000;
+    font-size:20px;
+}
+h1 {
+    color: #5B6670;
+    font-size: 30px;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Arial Black, Arial, sans-serif;
+    margin-top: 10px;
+}
+.btn-primary, .excel-buttons{
+    color:#fff;
+    background-color:#C8102E;
+    margin-top:10px;
+    border-color:#C8102E;
+}
+.form-group>input{
+    border-color:#C8102E;
+}
+.table, th, td{
+    border: 1px solid black !important;
+}
+
+.form-control:focus {
+    border-color: #C8102E;
+    box-shadow: 0 0 0 0.10rem #C8102E;
+}
+.form-control{
+    border:1px solid #C8102E;
+}
+.submit-container{
+    position:absolute;
+    top:40%;
+    left:38%;
+    
+}
+h1.submit-container {
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Arial Black, Arial, sans-serif;
+    font-size:30px;
+    color:white;
+}
+.box{
+    text-align:center;
+}
+.add:hover {
+    background-color: #ED2939;
+    border-style:none;
+}
+.btn-primary:hover {
+    background-color: #ED2939;
+    border-style: none;
+}
+.nav{
+    color:#c8102e;
+}

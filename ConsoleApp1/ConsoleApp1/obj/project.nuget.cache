@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "HeGE6jz26G+bNWQZDxk4cW356liwoxkH9D0SPBY/0F099Cn6/jO+lbhj9Wz2933YFR4vSmaU6MoRJBUvl4pSXQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\thapa\\OneDrive\\Desktop\\LinkAlumni\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\thapa\\.nuget\\packages\\fsharp.core\\6.0.6\\fsharp.core.6.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}

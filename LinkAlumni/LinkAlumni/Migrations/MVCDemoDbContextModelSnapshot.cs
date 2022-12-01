@@ -29,59 +29,59 @@ namespace LinkAlumni.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Certificates")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(8000)");
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(8000)");
 
                     b.Property<string>("CompanyAddress")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(8000)");
 
                     b.Property<string>("CompanyName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(8000)");
 
                     b.Property<string>("CurrentJobTitle")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(8000)");
 
                     b.Property<string>("DegreeReceived")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(8000)");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(8000)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(8000)");
 
                     b.Property<int>("GraduationYear")
                         .HasColumnType("int");
 
                     b.Property<string>("Internships")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(8000)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(8000)");
 
                     b.Property<string>("Major")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(8000)");
 
                     b.Property<string>("Notes")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(8000)");
 
                     b.Property<long>("PhoneNumber")
                         .HasColumnType("bigint");
 
                     b.Property<string>("PostGraduateDegree")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(8000)");
 
                     b.Property<string>("State")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(8000)");
 
                     b.HasKey("Id");
 

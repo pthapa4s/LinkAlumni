@@ -6,7 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MVCDemoDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MvcDemoConnectionString")));
+    options.UseSqlite(builder.Configuration.GetConnectionString("sqlite"))
+    //options.UseSqlServer(builder.Configuration.GetConnectionString("MvcDemoConnectionString"))
+    );
 
 var app = builder.Build();
 
